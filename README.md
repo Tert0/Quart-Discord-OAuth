@@ -11,10 +11,10 @@ from quart_discord_oauth import DiscordOAuth2, requires_authorization, Unauthori
 app = Quart(__name__)
 
 discord_oauth = DiscordOAuth2(app=app,
-						     client_id=<your client id>,
-						     client_secret="<your client secret>",
-						     redirect_uri="<your redirect uri>",
-						     scope="identify email guilds") # Your Scopes
+			      client_id=<your client id>,
+			      client_secret="<your client secret>",
+			      redirect_uri="<your redirect uri>",
+			      scope="identify email guilds") # Your Scopes
 
 @app.errorhandler(Unauthorized)
 async def unauthorized(e):

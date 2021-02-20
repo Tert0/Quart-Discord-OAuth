@@ -1,6 +1,17 @@
-name: QuartDiscordOAuth
+name: Quart-Discord-OAuth
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+
+  pull_request:
+    branches:
+      - master
+    tags:
+      - v*
 
 jobs:
   build:

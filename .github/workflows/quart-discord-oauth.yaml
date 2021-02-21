@@ -2,8 +2,6 @@ name: Quart-Discord-OAuth
 
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*'
 

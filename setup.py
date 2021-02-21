@@ -11,4 +11,5 @@ setup(
         'cachetools',
         'requests'
     ],
+    url='https://github.com/Tert0/Quart-Discord-OAuth',
 )

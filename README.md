@@ -5,7 +5,7 @@ Discord OAuth Quart extension for APIs.
 
 ## Example
 ```python
-from quart import Quart, jsonify
+from quart import Quart, jsonify, request
 from quart_discord_oauth import DiscordOAuth2, requires_authorization, Unauthorized, InvalidRequest, RateLimited
 
 app = Quart(__name__)
@@ -48,14 +48,14 @@ async def callback():
 @requires_authorization
 async def user():
 	user = await discord_oauth.fetch_user()
-	return jsonify(user.__dict__)
+	return jsonify(user.to_json())
 
 
 @app.route('/guilds')
 @requires_authorization
 async def guilds():
-	guilds = await discord_oauth.fetch_guilds()
-	return guilds
+	guilds, guilds_json = await discord_oauth.fetch_guilds()
+	return jsonify(guilds.guilds_json)
 
 @app.route('/authenticated')
 async def authenticated():

@@ -1,8 +1,9 @@
 import json
 from quart import current_app
+from .base import DiscordBaseModel
 
 
-class User(object):
+class User(DiscordBaseModel):
     ROUTE = '/users/@me'
 
     def __init__(self, json):
@@ -14,7 +15,8 @@ class User(object):
         self.email = json["email"]
         self.avatar_url = f'https://cdn.discordapp.com/avatars/{self.id}/{json["avatar"]}.png'
 
-        self.__dict__ = {
+	def to_json():
+		return {
             'id': self.id,
             'username': self.username,
             'discriminator': self.discriminator,
@@ -22,6 +24,3 @@ class User(object):
             'email': self.email,
             'avatar_url': self.avatar_url
         }
-
-    def json(self):
-        return json.dumps(self._json)

@@ -3,6 +3,7 @@ import urllib.parse
 
 from . import exeptions
 from .models.user import User
+from .models.guild import Guild
 from quart import request
 from functools import wraps
 from quart import current_app
@@ -95,7 +96,13 @@ class DiscordOAuth2:
             token = data['token']
         except TypeError:
             raise exeptions.InvalidRequest
-        return self.fetch_from_api("/users/@me/guilds", token)
+        guilds_from_api = self.fetch_from_api("/users/@me/guilds", token)
+        guilds = []
+        guilds_json = []
+        for guild in guilds_from_api:
+            guilds.append(Guild(guild))
+            guilds_json.append(Guild(guild).to_json())
+        return guilds, guilds_json
 
     async def get_auth_status(self):
         data = await request.json

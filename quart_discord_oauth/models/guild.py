@@ -1,11 +1,25 @@
-class Guild(object):
+from .base import DiscordBaseModel
+
+
+class Guild(DiscordBaseModel):
     def __init__(self, json):
         self._json = json
         self.name = json["name"]
-        self.discriminator = json["discriminator"]
+        self.icon = json["icon"]
         self.id = int(json["id"])
-        self.locale = json["locale"]
-        self.email = json["email"]
+        self.owner = bool(json["owner"])
+        self.permissions = json["permissions"]
+        self.permissions_new = json["permissions_new"]
+        self.features = list(json["features"])
 
-    def __str__(self):
-        return f'{self._json}'
+	
+	def to_json(self):
+		return {
+            'id': self.id,
+            'username': self.username,
+            'icon': self.icon,
+            'owner': self.owner,
+            'permissions': self.permissions,
+            'permissions_new': self.permissions_new,
+            'features': self.features
+        }

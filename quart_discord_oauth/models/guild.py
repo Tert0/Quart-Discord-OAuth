@@ -15,7 +15,7 @@ class Guild(DiscordBaseModel):
     def to_json(self):
         return {
             'id': self.id,
-            'username': self.username,
+            'name': self.name,
             'icon': self.icon,
             'owner': self.owner,
             'permissions': self.permissions,

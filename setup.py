@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 setup(
     name='quart_discord_oauth',
     packages=find_packages(),
-    version='1.0.4',
+    version='1.0.5',
     description='Discord OAuth Quart extension for APIs',
     author='Tert0',
     license='MIT',

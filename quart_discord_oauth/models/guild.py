@@ -12,14 +12,13 @@ class Guild(DiscordBaseModel):
         self.permissions_new = json["permissions_new"]
         self.features = list(json["features"])
 
-	
-	def to_json(self):
-	    return {
-                'id': self.id,
-                'username': self.username,
-                'icon': self.icon,
-                'owner': self.owner,
-                'permissions': self.permissions,
-                'permissions_new': self.permissions_new,
-                'features': self.features
+    def to_json(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'icon': self.icon,
+            'owner': self.owner,
+            'permissions': self.permissions,
+            'permissions_new': self.permissions_new,
+            'features': self.features
         }

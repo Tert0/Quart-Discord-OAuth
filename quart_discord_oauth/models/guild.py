@@ -6,7 +6,7 @@ class Guild(DiscordBaseModel):
         self._json = json
         self.name = json["name"]
         self.icon = json["icon"]
-        self.id = int(json["id"])
+        self.id = str(json["id"])
         self.owner = bool(json["owner"])
         self.permissions = json["permissions"]
         self.permissions_new = json["permissions_new"]

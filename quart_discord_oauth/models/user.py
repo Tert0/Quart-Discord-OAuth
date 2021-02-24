@@ -10,7 +10,7 @@ class User(DiscordBaseModel):
         self._json = json
         self.username = json["username"]
         self.discriminator = json["discriminator"]
-        self.id = int(json["id"])
+        self.id = str(json["id"])
         self.locale = json["locale"]
         self.email = json["email"]
         self.avatar_url = f'https://cdn.discordapp.com/avatars/{self.id}/{json["avatar"]}.png'

@@ -22,4 +22,4 @@ class Guild(DiscordBaseModel):
                 'permissions': self.permissions,
                 'permissions_new': self.permissions_new,
                 'features': self.features
-            }
+        }

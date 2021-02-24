@@ -16,7 +16,7 @@ class User(DiscordBaseModel):
         self.avatar_url = f'https://cdn.discordapp.com/avatars/{self.id}/{json["avatar"]}.png'
 
         def to_json():
-	    return {
+	        return {
                 'id': self.id,
                 'username': self.username,
                 'discriminator': self.discriminator,

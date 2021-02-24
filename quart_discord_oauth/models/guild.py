@@ -14,12 +14,12 @@ class Guild(DiscordBaseModel):
 
 	
 	def to_json(self):
-		return {
-            'id': self.id,
-            'username': self.username,
-            'icon': self.icon,
-            'owner': self.owner,
-            'permissions': self.permissions,
-            'permissions_new': self.permissions_new,
-            'features': self.features
-        }
+	    return {
+                'id': self.id,
+                'username': self.username,
+                'icon': self.icon,
+                'owner': self.owner,
+                'permissions': self.permissions,
+                'permissions_new': self.permissions_new,
+                'features': self.features
+            }
